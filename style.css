@@ -12,10 +12,6 @@ header {
   text-align: center;
 }
 
-header h1 {
-  margin-bottom: 5px;
-}
-
 .cta {
   display: inline-block;
   margin-top: 15px;
@@ -36,18 +32,18 @@ h2 {
   color: #0b3c5d;
 }
 
-.skills-grid {
+.skills-grid, .metrics-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
 }
 
-.skills-grid span {
+.skills-grid span, .metrics-grid div {
   background: white;
-  padding: 10px;
-  border-radius: 4px;
+  padding: 15px;
+  border-radius: 5px;
   text-align: center;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
 }
 
 .job {
@@ -72,8 +68,11 @@ h2 {
   border: 1px solid #ddd;
 }
 
-.job-content ul {
-  margin: 0;
+.case {
+  background: white;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-left: 5px solid #1e90ff;
 }
 
 footer {

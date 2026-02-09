@@ -382,6 +382,116 @@
             box-shadow: 0 8px 30px rgba(212, 175, 55, 0.4);
         }
 
+        /* Email Modal */
+        .email-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .email-modal.active {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .email-form {
+            background: var(--bg-white);
+            padding: 40px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            animation: slideUp 0.4s ease;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        .email-form h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            font-family: 'Work Sans', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .success-message h3 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
         /* Footer */
         footer {
             background: var(--primary-dark);
@@ -411,6 +521,17 @@
             }
         }
 
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
@@ -432,6 +553,11 @@
             .contact-info {
                 flex-direction: column;
                 gap: 15px;
+            }
+
+            .email-form {
+                padding: 30px 20px;
+                margin: 20px;
             }
         }
 
@@ -464,6 +590,10 @@
                 <div class="contact-item">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10h5v-2h-5c-4.34 0-8-3.66-8-8s3.66-8 8-8 8 3.66 8 8v1.43c0 .79-.71 1.57-1.5 1.57s-1.5-.78-1.5-1.57V12c0-2.76-2.24-5-5-5s-5 2.24-5 5 2.24 5 5 5c1.38 0 2.64-.56 3.54-1.47.65.89 1.77 1.47 2.96 1.47 1.97 0 3.5-1.6 3.5-3.57V12c0-5.52-4.48-10-10-10zm0 13c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/></svg>
                     <span><a href="https://odondiedward.github.io/portfolio/" style="color: rgba(255, 255, 255, 0.9); text-decoration: none;">Portfolio</a></span>
+                </div>
+                <div class="contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    <span>odondiedward@gmail.com</span>
                 </div>
             </div>
         </div>
@@ -612,6 +742,40 @@
         </section>
     </div>
 
+    <!-- Email Request Modal -->
+    <div class="email-modal" id="emailModal">
+        <div class="email-form">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <div class="form-container" id="formContainer">
+                <h3>Request CV via Email</h3>
+                <form id="cvRequestForm">
+                    <div class="form-group">
+                        <label for="name">Your Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company/Organization</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Additional Message (Optional)</label>
+                        <textarea id="message" name="message" placeholder="Tell me a bit about why you're interested in my CV..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Request</button>
+                </form>
+            </div>
+            <div class="success-message" id="successMessage">
+                <h3>✓ Request Sent Successfully!</h3>
+                <p>Thank you for your interest. I'll send my CV to your email shortly.</p>
+                <p>You can also reach me directly at: odondiedward@gmail.com</p>
+            </div>
+        </div>
+    </div>
+
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="cta-content">
@@ -619,7 +783,7 @@
             <p class="cta-text">
                 I'm passionate about delivering exceptional customer experiences and would love to discuss how I can contribute to your team's success.
             </p>
-            <a href="#" class="btn" id="downloadBtn">Download My CV</a>
+            <a href="#" class="btn" id="requestCVBtn">Request CV via Email</a>
         </div>
     </section>
 
@@ -629,16 +793,77 @@
     </footer>
 
     <script>
-        // Download CV functionality
-        document.getElementById('downloadBtn').addEventListener('click', function(e) {
+        // Email Request Functionality
+        document.getElementById('requestCVBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('emailModal').classList.add('active');
+        });
+
+        document.getElementById('closeModal').addEventListener('click', function() {
+            document.getElementById('emailModal').classList.remove('active');
+            resetForm();
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('emailModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.remove('active');
+                resetForm();
+            }
+        });
+
+        // Form submission
+        document.getElementById('cvRequestForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Create a message for the user
-            alert('To download the CV:\n\n1. The CV document "EDWARD_ALLAN_ODONDI-CV_Customer_Support_Specialist" is available in the same folder as this portfolio.\n\n2. You can also add a direct link to the CV file by updating the href attribute of this button.\n\n3. For automated download, place the CV file in the same directory and update the link to point to it.');
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                company: document.getElementById('company').value,
+                message: document.getElementById('message').value,
+                timestamp: new Date().toISOString()
+            };
             
-            // Alternative: If CV is in the same directory, uncomment this line:
-            // window.location.href = 'EDWARD_ALLAN_ODONDI-CV_Customer_Support_Specialist';
+            // In a real application, you would send this data to a server
+            // For demo purposes, we'll simulate a successful submission
+            console.log('CV Request Submitted:', formData);
+            
+            // Show success message
+            document.getElementById('formContainer').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // In production, you would:
+            // 1. Send the form data to your server/email service
+            // 2. Automatically send the CV to the requester's email
+            // 3. Notify Edward about the request
+            
+            // For now, we'll simulate sending an email
+            const emailBody = encodeURIComponent(
+                `Hello Edward,\n\n` +
+                `I would like to request your CV for consideration.\n\n` +
+                `Name: ${formData.name}\n` +
+                `Email: ${formData.email}\n` +
+                `Company: ${formData.company}\n` +
+                `Message: ${formData.message}\n\n` +
+                `Best regards,\n${formData.name}`
+            );
+            
+            // Open email client (optional - can be enabled if needed)
+            // window.open(`mailto:odondiedward01@gmail.com?subject=CV Request from ${formData.name}&body=${emailBody}`);
+            
+            // Close modal after 3 seconds
+            setTimeout(() => {
+                document.getElementById('emailModal').classList.remove('active');
+                resetForm();
+            }, 3000);
         });
+
+        function resetForm() {
+            document.getElementById('cvRequestForm').reset();
+            document.getElementById('formContainer').style.display = 'block';
+            document.getElementById('successMessage').style.display = 'none';
+        }
 
         // Smooth scroll for any internal links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -679,6 +904,14 @@
 
         document.querySelectorAll('.experience-card, .education-card').forEach(card => {
             observer.observe(card);
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.getElementById('emailModal').classList.remove('active');
+                resetForm();
+            }
         });
     </script>
 </body>

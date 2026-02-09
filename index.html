@@ -1,146 +1,685 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Edward Allan Odondi | Customer Service Professional</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edward Allan Odondi - Customer Support Specialist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #0a2540;
+            --primary-blue: #0066cc;
+            --accent-gold: #d4af37;
+            --text-dark: #1a1a1a;
+            --text-light: #6b7280;
+            --bg-cream: #fafaf8;
+            --bg-white: #ffffff;
+            --border-subtle: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            color: var(--text-dark);
+            background: var(--bg-cream);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #134b7a 100%);
+            color: white;
+            padding: 120px 20px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 102, 204, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.9);
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            max-width: 700px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.6s backwards;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .contact-item svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--accent-gold);
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--bg-white);
+            padding: 60px 20px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .stat-card {
+            text-align: center;
+            animation: fadeIn 1s ease-out backwards;
+        }
+
+        .stat-card:nth-child(1) { animation-delay: 0.1s; }
+        .stat-card:nth-child(2) { animation-delay: 0.2s; }
+        .stat-card:nth-child(3) { animation-delay: 0.3s; }
+        .stat-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section {
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: var(--primary-dark);
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--accent-gold);
+        }
+
+        /* Experience Cards */
+        .experience-grid {
+            display: grid;
+            gap: 40px;
+        }
+
+        .experience-card {
+            background: var(--bg-white);
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid var(--border-subtle);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary-blue);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+            transform-origin: top;
+        }
+
+        .experience-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .experience-card:hover {
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .experience-header {
+            margin-bottom: 25px;
+        }
+
+        .experience-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+        }
+
+        .experience-company {
+            font-size: 1.1rem;
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+        }
+
+        .experience-date {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .experience-highlights {
+            list-style: none;
+        }
+
+        .experience-highlights li {
+            padding-left: 30px;
+            margin-bottom: 15px;
+            position: relative;
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        .experience-highlights li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-tag {
+            background: var(--bg-white);
+            padding: 12px 20px;
+            border-radius: 6px;
+            border: 1px solid var(--border-subtle);
+            text-align: center;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--primary-blue);
+            color: white;
+            border-color: var(--primary-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 102, 204, 0.3);
+        }
+
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            gap: 30px;
+        }
+
+        .education-card {
+            background: var(--bg-white);
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        .education-degree {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+        }
+
+        .education-institution {
+            font-size: 1rem;
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+        }
+
+        .education-date {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #134b7a 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta-text {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 18px 40px;
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn:hover {
+            background: #f0c84a;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        /* Print styles for CV download */
+        @media print {
+            .hero, .stats, .cta-section, footer {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Edward Allan Odondi</h1>
+            <p class="subtitle">Customer Support Specialist</p>
+            <p class="description">
+                Results-driven professional with 4+ years of experience delivering exceptional customer service across telecommunications and financial services. Proven track record of managing 3,000+ client interactions while maintaining 99% accuracy and exceeding service quality metrics in high-volume remote environments.
+            </p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <span>Nairobi, Kenya</span>
+                </div>
+                <div class="contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    <span>+254 705120562</span>
+                </div>
+                <div class="contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10h5v-2h-5c-4.34 0-8-3.66-8-8s3.66-8 8-8 8 3.66 8 8v1.43c0 .79-.71 1.57-1.5 1.57s-1.5-.78-1.5-1.57V12c0-2.76-2.24-5-5-5s-5 2.24-5 5 2.24 5 5 5c1.38 0 2.64-.56 3.54-1.47.65.89 1.77 1.47 2.96 1.47 1.97 0 3.5-1.6 3.5-3.57V12c0-5.52-4.48-10-10-10zm0 13c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/></svg>
+                    <span><a href="https://odondiedward.github.io/portfolio/" style="color: rgba(255, 255, 255, 0.9); text-decoration: none;">Portfolio</a></span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<header>
-  <h1>Edward Allan Odondi</h1>
-  <p>Customer Service | Call Center | Remote Support Professional</p>
-  <a href="#contact" class="cta">Available for Remote Work</a>
-</header>
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">4+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">3,000+</div>
+                <div class="stat-label">Clients Served</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">92%</div>
+                <div class="stat-label">Customer Satisfaction</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">99%</div>
+                <div class="stat-label">Data Accuracy</div>
+            </div>
+        </div>
+    </section>
 
-<section id="about">
-  <h2>Professional Overview</h2>
-  <p>
-    Customer service and call center professional with over four years of experience supporting
-    customers through high-volume phone, email, and service workflows. Proven ability to resolve
-    customer issues accurately, maintain detailed records, and meet strict quality and handle-time
-    standards across telecommunications and financial services environments.
-  </p>
-</section>
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Experience Section -->
+        <section class="section">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <h3 class="experience-title">Trade Development Representative</h3>
+                        <p class="experience-company">Airtel Kenya</p>
+                        <p class="experience-date">October 2025 – January 2026 | Nairobi, Kenya</p>
+                    </div>
+                    <ul class="experience-highlights">
+                        <li>Expanded retail partner network from 45 to 78 active dealers within 3 months, increasing territorial sales coverage by 73%</li>
+                        <li>Achieved 105% of monthly service targets consistently by facilitating SIM activations, airtime sales, and mobile money transactions</li>
+                        <li>Reduced partner service issues by 40% through comprehensive training for 60+ retail staff</li>
+                    </ul>
+                </div>
 
-<section id="availability">
-  <h2>Remote Availability</h2>
-  <ul>
-    <li>Time Zone: East Africa Time (Flexible for EST hours).</li>
-    <li>Work Hours: Available 7:00am – 4:00pm EST.</li>
-    <li>Work Setup: Dedicated workspace, headset, reliable internet, dual-screen capable.</li>
-    <li>Availability: Open to weekends and holiday coverage.</li>
-  </ul>
-</section>
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <h3 class="experience-title">Call Centre Representative</h3>
+                        <p class="experience-company">Tupande Call Centre</p>
+                        <p class="experience-date">March 2025 – September 2025 | Nairobi, Kenya</p>
+                    </div>
+                    <ul class="experience-highlights">
+                        <li>Managed 80-100 inbound and outbound calls daily while maintaining 92% customer satisfaction rating, exceeding benchmarks by 7%</li>
+                        <li>Increased successful repayment confirmations from 1,200 to 1,850 monthly cases through professional follow-up protocols</li>
+                        <li>Improved first-call resolution rate by 25%, reducing repeat contacts and customer frustration</li>
+                        <li>Achieved 99.2% data accuracy rate across CRM platform handling 5,000+ active accounts</li>
+                    </ul>
+                </div>
 
-<section id="metrics">
-  <h2>Performance Snapshot</h2>
-  <div class="metrics-grid">
-    <div><strong>4+</strong><br>Years Customer Support</div>
-    <div><strong>3,000+</strong><br>Customers Supported</div>
-    <div><strong>5,000+</strong><br>Records Updated</div>
-    <div><strong>High</strong><br>Accuracy & QA Focus</div>
-  </div>
-</section>
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <h3 class="experience-title">Customer Care Representative</h3>
+                        <p class="experience-company">Litsa Credits Limited</p>
+                        <p class="experience-date">April 2023 – February 2025 | Nairobi, Kenya</p>
+                    </div>
+                    <ul class="experience-highlights">
+                        <li>Increased monthly customer onboarding from 85 to 142 completed applications by streamlining registration processes</li>
+                        <li>Boosted customer acquisition through 200+ weekly outreach calls, converting 35% of prospects to active clients</li>
+                        <li>Enhanced repayment collection rate from 68% to 82% within 6 months by coordinating with collections teams</li>
+                    </ul>
+                </div>
 
-<section id="skills">
-  <h2>Tools & Core Skills</h2>
-  <div class="skills-grid">
-    <span>Inbound Calls</span>
-    <span>Outbound Calls</span>
-    <span>Email Support</span>
-    <span>Chat Support</span>
-    <span>Order Tracking</span>
-    <span>Ticket Systems</span>
-    <span>CRM Tools</span>
-    <span>Zendesk-Style Systems</span>
-    <span>Data Entry</span>
-    <span>Quality Assurance</span>
-    <span>Handle Time</span>
-    <span>Customer Retention</span>
-  </div>
-</section>
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <h3 class="experience-title">Sales Representative</h3>
+                        <p class="experience-company">Safaricom PLC</p>
+                        <p class="experience-date">January 2022 – December 2023 | Nairobi, Kenya</p>
+                    </div>
+                    <ul class="experience-highlights">
+                        <li>Processed 50-70 daily transactions with 98% accuracy for airtime, SIM cards, mobile money, and data bundles</li>
+                        <li>Registered and activated 1,200+ new customers annually with zero compliance infractions</li>
+                        <li>Achieved 90% same-day resolution rate for customer inquiries and complaints</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-<section id="experience">
-  <h2>Professional Experience</h2>
+        <!-- Skills Section -->
+        <section class="section">
+            <h2 class="section-title">Core Competencies</h2>
+            <div class="skills-grid">
+                <div class="skill-tag">Customer Support</div>
+                <div class="skill-tag">Inbound Calls</div>
+                <div class="skill-tag">Outbound Calls</div>
+                <div class="skill-tag">Email Support</div>
+                <div class="skill-tag">Live Chat</div>
+                <div class="skill-tag">Chat Support</div>
+                <div class="skill-tag">Order Tracking</div>
+                <div class="skill-tag">Ticket Management</div>
+                <div class="skill-tag">Case Resolution</div>
+                <div class="skill-tag">Data Entry</div>
+                <div class="skill-tag">CRM Systems</div>
+                <div class="skill-tag">Zendesk</div>
+                <div class="skill-tag">Freshdesk</div>
+                <div class="skill-tag">Salesforce</div>
+                <div class="skill-tag">Quality Assurance</div>
+                <div class="skill-tag">Handle Time</div>
+                <div class="skill-tag">First Call Resolution</div>
+                <div class="skill-tag">Customer Satisfaction</div>
+                <div class="skill-tag">Conflict Resolution</div>
+                <div class="skill-tag">Customer Retention</div>
+                <div class="skill-tag">Remote Support</div>
+                <div class="skill-tag">Multi-Channel Support</div>
+                <div class="skill-tag">Technical Troubleshooting</div>
+                <div class="skill-tag">Account Management</div>
+                <div class="skill-tag">Payment Processing</div>
+                <div class="skill-tag">Billing Support</div>
+                <div class="skill-tag">Issue Escalation</div>
+                <div class="skill-tag">SaaS Support</div>
+                <div class="skill-tag">eCommerce Support</div>
+                <div class="skill-tag">Fintech Support</div>
+            </div>
+        </section>
 
-  <div class="job">
-    <button class="job-toggle">Trade Development Representative – Airtel Kenya</button>
-    <div class="job-content">
-      <ul>
-        <li>Handled daily customer and partner calls to resolve service, activation, and account issues.</li>
-        <li>Supported SIM activations, airtime, data bundles, and mobile money transactions.</li>
-        <li>Trained partners on systems usage to reduce repeat inquiries.</li>
-        <li>Resolved service issues promptly to improve satisfaction and retention.</li>
-        <li>Maintained accurate daily service and activity records.</li>
-      </ul>
+        <!-- Education Section -->
+        <section class="section">
+            <h2 class="section-title">Education & Training</h2>
+            <div class="education-grid">
+                <div class="education-card">
+                    <h3 class="education-degree">Bachelor of Science in Statistics</h3>
+                    <p class="education-institution">Jomo Kenyatta University of Agriculture and Technology</p>
+                    <p class="education-date">2017 – 2022</p>
+                </div>
+                <div class="education-card">
+                    <h3 class="education-degree">Development Economics for Sub-Saharan Africa</h3>
+                    <p class="education-institution">UKAID – Institute of Labour Economics</p>
+                    <p class="education-date">2021</p>
+                </div>
+                <div class="education-card">
+                    <h3 class="education-degree">No-Code / Low-Code AI Automation Training Bootcamp</h3>
+                    <p class="education-institution">Loubby AI</p>
+                    <p class="education-date">2025</p>
+                </div>
+            </div>
+        </section>
     </div>
-  </div>
 
-  <div class="job">
-    <button class="job-toggle">Call Centre Representative – Tupande</button>
-    <div class="job-content">
-      <ul>
-        <li>Managed high-volume inbound and outbound calls daily.</li>
-        <li>Collected repayment pledges and updated customer records in real time.</li>
-        <li>Resolved customer concerns calmly and professionally.</li>
-        <li>Escalated unresolved cases promptly to supervisors.</li>
-        <li>Submitted daily and weekly call performance reports.</li>
-      </ul>
-    </div>
-  </div>
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 class="cta-title">Let's Work Together</h2>
+            <p class="cta-text">
+                I'm passionate about delivering exceptional customer experiences and would love to discuss how I can contribute to your team's success.
+            </p>
+            <a href="#" class="btn" id="downloadBtn">Download My CV</a>
+        </div>
+    </section>
 
-  <div class="job">
-    <button class="job-toggle">Customer Care Representative – Litsa Credits</button>
-    <div class="job-content">
-      <ul>
-        <li>Guided customers through onboarding and account inquiries.</li>
-        <li>Handled repayment reminders and service follow-ups.</li>
-        <li>Maintained accurate interaction and service records.</li>
-        <li>Explained products and repayment terms clearly.</li>
-        <li>Supported customer retention through follow-up communication.</li>
-      </ul>
-    </div>
-  </div>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Edward Allan Odondi. All rights reserved.</p>
+    </footer>
 
-</section>
+    <script>
+        // Download CV functionality
+        document.getElementById('downloadBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Create a message for the user
+            alert('To download the CV:\n\n1. The CV document "EDWARD_ALLAN_ODONDI-CV_Customer_Support_Specialist.docx" is available in the same folder as this portfolio.\n\n2. You can also add a direct link to the CV file by updating the href attribute of this button.\n\n3. For automated download, place the CV file in the same directory and update the link to point to it.');
+            
+            // Alternative: If CV is in the same directory, uncomment this line:
+            // window.location.href = 'EDWARD_ALLAN_ODONDI-CV_Customer_Support_Specialist.docx';
+        });
 
-<section id="cases">
-  <h2>Customer Success Snapshots</h2>
+        // Smooth scroll for any internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
 
-  <div class="case">
-    <h3>High-Volume Call Handling</h3>
-    <p>Resolved customer inquiries during peak call periods by prioritizing issues and maintaining calm communication, resulting in faster resolution and improved customer satisfaction.</p>
-  </div>
+        // Add scroll animation for experience cards
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-  <div class="case">
-    <h3>Payment Issue Resolution</h3>
-    <p>Supported customers facing repayment challenges by explaining options clearly and escalating when required, improving successful resolution outcomes.</p>
-  </div>
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '0';
+                    entry.target.style.transform = 'translateY(20px)';
+                    entry.target.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, 100);
+                    
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
 
-  <div class="case">
-    <h3>Retail Partner Support</h3>
-    <p>Reduced repeat service requests by training partners on system usage and transaction troubleshooting.</p>
-  </div>
-</section>
-
-<section id="cv">
-  <h2>Download Resume</h2>
-  <a href="Edward_Allan_Odondi_CV.pdf" class="cta" download>Download CV (PDF)</a>
-</section>
-
-<section id="contact">
-  <h2>Contact</h2>
-  <p>📍 Remote | Kenya</p>
-  <p>📧 odondiedward01@gmail.com</p>
-  <p>📞 +254 705 120 562</p>
-</section>
-
-<footer>
-  <p>© 2026 Edward Allan Odondi</p>
-</footer>
-
-<script src="script.js"></script>
+        document.querySelectorAll('.experience-card, .education-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
 </body>
 </html>

@@ -31,7 +31,6 @@
             overflow-x: hidden;
         }
 
-        /* Hero Section */
         .hero {
             background: linear-gradient(135deg, var(--primary-dark) 0%, #134b7a 100%);
             color: white;
@@ -107,7 +106,16 @@
             fill: var(--accent-gold);
         }
 
-        /* Stats Section */
+        .contact-item a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent-gold);
+        }
+
         .stats {
             background: var(--bg-white);
             padding: 60px 20px;
@@ -149,7 +157,6 @@
             font-weight: 500;
         }
 
-        /* Main Content */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -180,7 +187,6 @@
             background: var(--accent-gold);
         }
 
-        /* Experience Cards */
         .experience-grid {
             display: grid;
             gap: 40px;
@@ -262,7 +268,6 @@
             font-size: 1.2rem;
         }
 
-        /* Skills Section */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -289,7 +294,6 @@
             box-shadow: 0 5px 15px rgba(0, 102, 204, 0.3);
         }
 
-        /* Education Section */
         .education-grid {
             display: grid;
             gap: 30px;
@@ -320,7 +324,124 @@
             color: var(--text-light);
         }
 
-        /* CTA Section */
+        .email-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .email-modal.active {
+            display: flex;
+        }
+
+        .email-form {
+            background: var(--bg-white);
+            padding: 40px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            animation: slideUp 0.4s ease;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: color 0.3s ease;
+        }
+
+        .close-modal:hover {
+            color: var(--primary-dark);
+        }
+
+        .email-form h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            font-family: 'Work Sans', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .success-message h3 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        .success-message p {
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
         .cta-section {
             background: linear-gradient(135deg, var(--primary-dark) 0%, #134b7a 100%);
             color: white;
@@ -382,117 +503,6 @@
             box-shadow: 0 8px 30px rgba(212, 175, 55, 0.4);
         }
 
-        /* Email Modal */
-        .email-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .email-modal.active {
-            display: flex;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .email-form {
-            background: var(--bg-white);
-            padding: 40px;
-            border-radius: 12px;
-            width: 90%;
-            max-width: 500px;
-            position: relative;
-            animation: slideUp 0.4s ease;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--text-light);
-        }
-
-        .email-form h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--primary-dark);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--text-dark);
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid var(--border-subtle);
-            border-radius: 6px;
-            font-family: 'Work Sans', sans-serif;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-blue);
-        }
-
-        .form-group textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 15px;
-            background: var(--primary-blue);
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            background: var(--primary-dark);
-        }
-
-        /* Success Message */
-        .success-message {
-            display: none;
-            text-align: center;
-            padding: 30px;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .success-message h3 {
-            color: var(--primary-blue);
-            margin-bottom: 15px;
-        }
-
-        /* Footer */
         footer {
             background: var(--primary-dark);
             color: rgba(255, 255, 255, 0.7);
@@ -500,7 +510,6 @@
             padding: 40px 20px;
         }
 
-        /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -532,7 +541,6 @@
             }
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
@@ -559,9 +567,12 @@
                 padding: 30px 20px;
                 margin: 20px;
             }
+
+            .cta-title {
+                font-size: 2rem;
+            }
         }
 
-        /* Print styles for CV download */
         @media print {
             .hero, .stats, .cta-section, footer {
                 display: none;
@@ -570,7 +581,6 @@
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <h1>Edward Allan Odondi</h1>
@@ -589,17 +599,16 @@
                 </div>
                 <div class="contact-item">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10h5v-2h-5c-4.34 0-8-3.66-8-8s3.66-8 8-8 8 3.66 8 8v1.43c0 .79-.71 1.57-1.5 1.57s-1.5-.78-1.5-1.57V12c0-2.76-2.24-5-5-5s-5 2.24-5 5 2.24 5 5 5c1.38 0 2.64-.56 3.54-1.47.65.89 1.77 1.47 2.96 1.47 1.97 0 3.5-1.6 3.5-3.57V12c0-5.52-4.48-10-10-10zm0 13c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/></svg>
-                    <span><a href="https://dward.github.io/portfolio/" style="color: rgba(255, 255, 255, 0.9); text-decoration: none;">Portfolio</a></span>
+                    <span><a href="https://odondiedward.github.io/portfolio/">Portfolio</a></span>
                 </div>
                 <div class="contact-item">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                    <span>odondiedward01@gmail.com</span>
+                    <span>odondiedward@gmail.com</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
     <section class="stats">
         <div class="stats-grid">
             <div class="stat-card">
@@ -621,9 +630,7 @@
         </div>
     </section>
 
-    <!-- Main Content -->
     <div class="container">
-        <!-- Experience Section -->
         <section class="section">
             <h2 class="section-title">Professional Experience</h2>
             <div class="experience-grid">
@@ -682,7 +689,6 @@
             </div>
         </section>
 
-        <!-- Skills Section -->
         <section class="section">
             <h2 class="section-title">Core Competencies</h2>
             <div class="skills-grid">
@@ -719,7 +725,6 @@
             </div>
         </section>
 
-        <!-- Education Section -->
         <section class="section">
             <h2 class="section-title">Education & Training</h2>
             <div class="education-grid">
@@ -742,7 +747,6 @@
         </section>
     </div>
 
-    <!-- Email Request Modal -->
     <div class="email-modal" id="emailModal">
         <div class="email-form">
             <button class="close-modal" id="closeModal">&times;</button>
@@ -776,7 +780,6 @@
         </div>
     </div>
 
-    <!-- CTA Section -->
     <section class="cta-section">
         <div class="cta-content">
             <h2 class="cta-title">Let's Work Together</h2>
@@ -787,36 +790,39 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2026 Edward Allan Odondi. All rights reserved.</p>
     </footer>
 
     <script>
         // Email Request Functionality
-        document.getElementById('requestCVBtn').addEventListener('click', function(e) {
+        const emailModal = document.getElementById('emailModal');
+        const requestCVBtn = document.getElementById('requestCVBtn');
+        const closeModal = document.getElementById('closeModal');
+        const cvRequestForm = document.getElementById('cvRequestForm');
+        const formContainer = document.getElementById('formContainer');
+        const successMessage = document.getElementById('successMessage');
+
+        requestCVBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            document.getElementById('emailModal').classList.add('active');
+            emailModal.classList.add('active');
         });
 
-        document.getElementById('closeModal').addEventListener('click', function() {
-            document.getElementById('emailModal').classList.remove('active');
+        closeModal.addEventListener('click', function() {
+            emailModal.classList.remove('active');
             resetForm();
         });
 
-        // Close modal when clicking outside
-        document.getElementById('emailModal').addEventListener('click', function(e) {
+        emailModal.addEventListener('click', function(e) {
             if (e.target === this) {
                 this.classList.remove('active');
                 resetForm();
             }
         });
 
-        // Form submission
-        document.getElementById('cvRequestForm').addEventListener('submit', function(e) {
+        cvRequestForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Get form data
             const formData = {
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
@@ -825,20 +831,11 @@
                 timestamp: new Date().toISOString()
             };
             
-            // In a real application, you would send this data to a server
-            // For demo purposes, we'll simulate a successful submission
             console.log('CV Request Submitted:', formData);
             
-            // Show success message
-            document.getElementById('formContainer').style.display = 'none';
-            document.getElementById('successMessage').style.display = 'block';
+            formContainer.style.display = 'none';
+            successMessage.style.display = 'block';
             
-            // In production, you would:
-            // 1. Send the form data to your server/email service
-            // 2. Automatically send the CV to the requester's email
-            // 3. Notify Edward about the request
-            
-            // For now, we'll simulate sending an email
             const emailBody = encodeURIComponent(
                 `Hello Edward,\n\n` +
                 `I would like to request your CV for consideration.\n\n` +
@@ -849,23 +846,18 @@
                 `Best regards,\n${formData.name}`
             );
             
-            // Open email client (optional - can be enabled if needed)
-            // window.open(`mailto:odondiedward01@gmail.com?subject=CV Request from ${formData.name}&body=${emailBody}`);
-            
-            // Close modal after 3 seconds
             setTimeout(() => {
-                document.getElementById('emailModal').classList.remove('active');
+                emailModal.classList.remove('active');
                 resetForm();
             }, 3000);
         });
 
         function resetForm() {
-            document.getElementById('cvRequestForm').reset();
-            document.getElementById('formContainer').style.display = 'block';
-            document.getElementById('successMessage').style.display = 'none';
+            cvRequestForm.reset();
+            formContainer.style.display = 'block';
+            successMessage.style.display = 'none';
         }
 
-        // Smooth scroll for any internal links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -879,7 +871,6 @@
             });
         });
 
-        // Add scroll animation for experience cards
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -906,10 +897,9 @@
             observer.observe(card);
         });
 
-        // Close modal with Escape key
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                document.getElementById('emailModal').classList.remove('active');
+            if (e.key === 'Escape' && emailModal.classList.contains('active')) {
+                emailModal.classList.remove('active');
                 resetForm();
             }
         });
